@@ -1,5 +1,7 @@
 import { AppComponent } from './app.component';
+import { AppRoutes } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 import { LocationsModule } from './locations/locations.module';
 import { NgModule } from '@angular/core';
 import { PostNlModule } from './post-nl/post-nl.module';
@@ -9,10 +11,11 @@ import { PostNlModule } from './post-nl/post-nl.module';
         AppComponent
     ],
     imports: [
+        AppRoutes,
         BrowserModule,
         LocationsModule,
         PostNlModule.forRoot({
-            apiKey: 'api-key'
+            apiKey: environment.postNl.apiKey
         })
     ],
     providers: [],

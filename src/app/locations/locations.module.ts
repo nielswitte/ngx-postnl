@@ -13,6 +13,9 @@ import { PostNlService } from '../post-nl/services/post-nl.service';
     declarations: [
         LocationsComponent
     ],
+    exports: [
+        LocationsComponent
+    ],
     providers: [
         LocationsService
     ]
@@ -20,10 +23,6 @@ import { PostNlService } from '../post-nl/services/post-nl.service';
 export class LocationsModule {
     public constructor(@Optional() postNlService: PostNlService) {
         if (!!postNlService === false) {
-            throw new Error(`Please import the 'PostNlModule.forRoot(config)' in your app root, for example app.module.ts.`);
-        }
-
-        if (postNlService) {
             throw new Error(`Please import the 'PostNlModule.forRoot(config)' in your app root, for example app.module.ts.`);
         }
     }
